@@ -1,0 +1,120 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* Main Container */
+.container {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* Date Styling */
+.day h1 {
+    font-size: 2.5rem;
+    background: -webkit-linear-gradient(45deg, #00d2ff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+/* Clock Layout */
+.clock {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* Individual Time Blocks */
+.clock div {
+    background-color: #121212;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.clock div h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.clock div span {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Gradient Border Effect */
+.clock div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(45deg, #00d2ff, #ff00ff);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .day h1 {
+        font-size: 1.8rem;
+    }
+
+    .clock div h1 {
+        font-size: 2rem;
+    }
+
+    .clock {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .day h1 {
+        font-size: 1.5rem;
+    }
+
+    .clock div h1 {
+        font-size: 1.5rem;
+    }
+
+    .clock {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
